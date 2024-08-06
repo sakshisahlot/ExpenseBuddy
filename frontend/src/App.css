@@ -1,0 +1,40 @@
+.App {
+  height: 100vh;
+  position: relative;
+}
+
+.mainLayout {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+}
+
+.login {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.login::-webkit-scrollbar {
+  width: 0;
+}
+
+.main {
+  flex: 1;
+  background: rgba(252, 246, 249, 0.78);
+  border: 3px solid #ffffff;
+  backdrop-filter: blur(4.5px);
+  border-radius: 32px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.main::-webkit-scrollbar {
+  width: 0;
+}
