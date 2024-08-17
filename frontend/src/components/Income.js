@@ -6,8 +6,8 @@ import { rupee } from "../utils/Icons";
 import { useAuthContext } from "../context/AuthContext";
 
 export default function Income() {
-  const { getIncomes, deleteIncome, calculateTotalIncome, incomes,error, setError } = useGlobalContext();
-  const {getUserData,userData, setUserData} = useAuthContext();
+  const { getIncomes, deleteIncome, calculateTotalIncome, incomes } = useGlobalContext();
+  const {getUserData, setUserData} = useAuthContext();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -17,7 +17,7 @@ export default function Income() {
         getIncomes(data._id);
     };
     fetchUserData();
-  }, []); 
+  }, [getIncomes,getUserData,setUserData]); 
 
   return (
     <div className="income">

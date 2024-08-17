@@ -23,7 +23,7 @@ export const GlobalProvider = ({ children }) => {
       }
     };
     fetchUserData();
-  }, [getUserData]); // Include dependencies for re-running the effect if needed
+  }, [getUserData,setUserData]); // Include dependencies for re-running the effect if needed
   
 
   const addIncome = async (income) => {
@@ -59,13 +59,13 @@ export const GlobalProvider = ({ children }) => {
   };
 
   const deleteIncome = async (id) => {
-    const response = await axios.delete(`${BASE_URL}delete-income/${id}`);
+    await axios.delete(`${BASE_URL}delete-income/${id}`);
     getIncomes(userData._id);
   };
 
   const calculateTotalIncome = () => {
     let totalIncome = 0;
-    incomes.map((income) => {
+    incomes.forEach((income) => {
       totalIncome += income.amount;
     });
     return totalIncome;
@@ -104,13 +104,13 @@ export const GlobalProvider = ({ children }) => {
   };
 
   const deleteExpense = async (id) => {
-    const response = await axios.delete(`${BASE_URL}delete-expense/${id}`);
+    await axios.delete(`${BASE_URL}delete-expense/${id}`);
     getExpenses(userData._id);
   };
 
   const calculateTotalExpenses = () => {
     let totalExpense = 0;
-    expenses.map((expense) => {
+    expenses.forEach((expense) => {
       totalExpense += expense.amount;
     });
     return totalExpense;
