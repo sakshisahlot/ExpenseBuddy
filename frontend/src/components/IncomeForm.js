@@ -7,7 +7,7 @@ import { plus } from '../utils/Icons';
 import { useAuthContext } from '../context/AuthContext';
 
 export default function IncomeForm() {
-  const { addIncome, error, setError } = useGlobalContext();
+  const { addIncome, error, setError,getIncomes } = useGlobalContext();
   const { userData } = useAuthContext();
   
   const [inputValues, setInputValues] = useState({
@@ -42,6 +42,7 @@ export default function IncomeForm() {
         category: '',
         description: '',
       });
+      await getIncomes(userData._id);
     } catch (err) {
       setError(err.message || "Failed to add income.");
     }

@@ -9,8 +9,10 @@ const Login = () => {
   const [error, setError] = useState(""); // State to manage error messages
   const { login, setIsAuthenticated, setUserData } = useAuthContext();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     try {
       // Await login and ensure it returns user data
@@ -26,6 +28,7 @@ const Login = () => {
       // console.error(err);
       setError("Failed to login. Please check your credentials.");
     }
+    setLoading(false);
   };
 
   return (
@@ -47,6 +50,7 @@ const Login = () => {
               placeholder="email address"
               onChange={(event) => {
                 setEmail(event.target.value);
+                setError("");
               }}
             />
             <input
@@ -56,6 +60,7 @@ const Login = () => {
               placeholder="Password"
               onChange={(event) => {
                 setPassword(event.target.value);
+                setError("");
               }}
             />
 
@@ -70,6 +75,8 @@ const Login = () => {
                 bg={"var(--color-accent)"}
                 color={"#fff"}
                 onClick={handleSubmit}
+                disabled={loading} // Disable button if loading
+              loading={loading} // Pass loading state to the button
               />
             </div>
           </div>

@@ -33,7 +33,7 @@ export default function Dashboard() {
       }
     };
     fetchUserData();
-  }, [getExpenses,setUserData,getIncomes,getUserData]);
+  }, []);
 
   const CalculateMinMax = (arr, isMin = true) => {
     if (arr.length === 0) return 0; // Return 0 if the array is empty

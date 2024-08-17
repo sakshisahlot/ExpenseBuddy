@@ -12,6 +12,7 @@ import { AuthProvider, useAuthContext } from "./context/AuthContext";
 
 function App() {
   const [active, setActive] = useState(1); // selected item
+  
 
   const displayData = () => {
     switch (active) {

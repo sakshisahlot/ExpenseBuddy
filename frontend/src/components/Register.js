@@ -11,12 +11,15 @@ const Register = () => {
   const [error, setError] = useState(""); // State to store any errors during registration
   const { register } = useContext(AuthContext); // Access the register function from AuthContext
   const navigate = useNavigate(); // Initialize useNavigate for redirection
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault(); // Prevent default form submission behavior
 
     if (password !== confirmPassword) {
       setError("Passwords do not match"); // Set error message if passwords don't match
+      setLoading(false);
       return;
     }
 
@@ -25,9 +28,10 @@ const Register = () => {
       setError(""); // Clear any existing error messages
       navigate("/login"); // Redirect to the dashboard or home page after successful registration
     } catch (err) {
-      // console.error(err); // Log any errors to the console
+      console.error(err.message); // Log any errors to the console
       setError(err.message); // Set error message on registration failure
     }
+    setLoading(false);
   };
 
   return (
@@ -95,6 +99,8 @@ const Register = () => {
               bg="var(--color-accent)"
               color="#fff"
               onClick={handleSubmit}
+              disabled={loading} // Disable button if loading
+              loading={loading} // Pass loading state to the button
             />
           </div>
         </div>

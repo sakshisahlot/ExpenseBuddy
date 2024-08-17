@@ -13,11 +13,12 @@ export default function Income() {
     const fetchUserData = async () => {
         const data = await getUserData(); // Await for the data
         await setUserData(data); // Set the resolved data
-      console.log(data);
-       await getIncomes(data._id);
+        await getIncomes(data._id);
+        console.log(incomes)
     };
     fetchUserData();
-  }, [getIncomes,getUserData,setUserData]); 
+  },[]); 
+  
 
   return (
     <div className="income">

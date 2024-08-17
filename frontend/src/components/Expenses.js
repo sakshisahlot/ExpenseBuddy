@@ -18,7 +18,7 @@ export default function Expenses() {
       getExpenses(data._id);
     };
     fetchUserData();
-  }, [getExpenses,getUserData,setUserData]);
+  }, []);
 
   return (
     <div className="income">

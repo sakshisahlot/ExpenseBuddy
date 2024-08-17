@@ -23,7 +23,7 @@ export const GlobalProvider = ({ children }) => {
       }
     };
     fetchUserData();
-  }, [getUserData,setUserData]); // Include dependencies for re-running the effect if needed
+  }, []); 
   
 
   const addIncome = async (income) => {
