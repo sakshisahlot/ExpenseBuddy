@@ -24,7 +24,6 @@ export default function Dashboard() {
         const data = await getUserData(); // Await for the data
         await setUserData(data); // Set the resolved data
         if (data && data._id) {
-          // Check if user data and userId is available
           await getIncomes(data._id);
           await getExpenses(data._id);
         }

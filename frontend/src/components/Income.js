@@ -14,7 +14,7 @@ export default function Income() {
         const data = await getUserData(); // Await for the data
         await setUserData(data); // Set the resolved data
       console.log(data);
-        getIncomes(data._id);
+       await getIncomes(data._id);
     };
     fetchUserData();
   }, [getIncomes,getUserData,setUserData]); 

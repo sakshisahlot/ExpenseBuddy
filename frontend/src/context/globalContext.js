@@ -37,8 +37,6 @@ export const GlobalProvider = ({ children }) => {
   
       const response = await axios.post(`${BASE_URL}add-income/${userData._id}`, { ...income, userId: userData._id });
       console.log("Add income response:", response.data);
-  
-      // Refresh incomes after adding new one
       await getIncomes(userData._id);
     } catch (error) {
       console.error("Error in adding income", error);
@@ -48,7 +46,6 @@ export const GlobalProvider = ({ children }) => {
   
 
   const getIncomes = async (userId) => {
-    if(!userId) return;
     try {
       const response = await axios.get(`${BASE_URL}get-incomes/${userId}`);
       setIncomes(response.data);
