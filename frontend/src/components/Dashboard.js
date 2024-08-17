@@ -18,6 +18,7 @@ export default function Dashboard() {
 
   const {setUserData, getUserData } = useAuthContext();
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -34,6 +35,7 @@ export default function Dashboard() {
     };
     fetchUserData();
   }, []);
+  
 
   const CalculateMinMax = (arr, isMin = true) => {
     if (arr.length === 0) return 0; // Return 0 if the array is empty

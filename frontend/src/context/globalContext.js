@@ -11,6 +11,7 @@ export const GlobalProvider = ({ children }) => {
   const [expenses, setExpenses] = useState([]);
   const [error, setError] = useState(null);
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -24,6 +25,7 @@ export const GlobalProvider = ({ children }) => {
     };
     fetchUserData();
   }, []); 
+  
   
 
   const addIncome = async (income) => {

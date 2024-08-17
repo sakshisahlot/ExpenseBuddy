@@ -9,6 +9,7 @@ export default function Income() {
   const { getIncomes, deleteIncome, calculateTotalIncome, incomes } = useGlobalContext();
   const {getUserData, setUserData} = useAuthContext();
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const fetchUserData = async () => {
         const data = await getUserData(); // Await for the data
@@ -18,6 +19,7 @@ export default function Income() {
     };
     fetchUserData();
   },[]); 
+  
   
 
   return (

@@ -10,6 +10,7 @@ export default function Expenses() {
     useGlobalContext();
   const {  setUserData, getUserData } = useAuthContext();
 
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const fetchUserData = async () => {
       const data = await getUserData(); // Await for the data
@@ -19,6 +20,7 @@ export default function Expenses() {
     };
     fetchUserData();
   }, []);
+  
 
   return (
     <div className="income">
