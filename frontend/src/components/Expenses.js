@@ -12,6 +12,7 @@ export default function Expenses() {
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
+    console.log("expense");
     const fetchUserData = async () => {
       const data = await getUserData(); // Await for the data
       await setUserData(data); // Set the resolved data

@@ -20,6 +20,7 @@ export default function Dashboard() {
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
+    console.log("dashboard");
     const fetchUserData = async () => {
       try {
         const data = await getUserData(); // Await for the data

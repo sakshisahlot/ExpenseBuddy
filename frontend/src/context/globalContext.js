@@ -13,6 +13,7 @@ export const GlobalProvider = ({ children }) => {
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
+    console.log("global");
     const fetchUserData = async () => {
       try {
         const data = await getUserData(); // Await for the data
